@@ -1,11 +1,23 @@
 {
   "name": "piesocket-nodejs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "PieSocket NodeJS SDK for server-side publishing",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piesocket/piesocket-nodejs.git"
+  },
+  "keywords": [
+      "piesocket",
+      "websocket",
+      "server",
+      "pubsub",
+      "http",
+      "wss"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {

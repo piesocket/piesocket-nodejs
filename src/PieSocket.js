@@ -1,4 +1,5 @@
 const axios = require('axios');
+const https = require('https');
 
 const defaultOptions = {
   version: 3,
@@ -15,21 +16,29 @@ class PieSocket{
     this.connections = {}
   }
 
-  publish(channelId, payload){
+  publish(channel, event, data, meta) {
     var pubData = {
       key: this.options.apiKey,
       secret: this.options.secret,
-      channelId: channelId,
-      message: payload
+      channelId: channel,
+      message: {
+        event: event,
+        data: data,
+        meta: meta
+      }
     };
 
-    return axios({
-      method: 'post',
-      url: `https://${this.options.clusterId}.piesocket.com/api/publish?src=piesocket-nodejs&v=${this.options.version}`,
+    const url = `https://${this.options.clusterId}.piesocket.com/api/publish?src=piesocket-nodejs&v=${this.options.version}`;
+
+    const agent = new https.Agent({
+      rejectUnauthorized: false
+    });
+
+    return axios.post(url, pubData, {
+      httpsAgent: agent,
       headers: {
         'Content-Type': 'application/json'
-      },
-      data: JSON.stringify(pubData)
+      }
     });
   }
 }

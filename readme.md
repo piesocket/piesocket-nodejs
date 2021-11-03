@@ -1,10 +1,10 @@
-# PieSocket NodeJS SDK
+# PieSocket NodeJS Server SDK
 
 A NodeJS Library for PieSocket Channels.
 
 [PieSocket Channels](https://www.piesocket.com/blog/channels/) are a medium for clients and servers to communicate in real-time. Client-to-client communications are also supported.
 
-Note: This package is for server-side publishing, if you are looking for the package to use on the Frontend for subscribing, please see [PieSocketJS](https://github.com/piesocket/piesocket-js).
+Note: This package is PieSocket Server SDK, if you are looking for Client SDK (to use with Frontend on browsers), please see [PieSocketJS](https://github.com/piesocket/piesocket-js).
 ## Installation
 
 Yarn
@@ -38,19 +38,20 @@ var piesocket = new PieSocket({
 });
 ```
 
-2. Publish:
+2. Publish events:
 ```javascript
-piesocket.publish(channelId, data);
+piesocket.publish("channel", "event-name" , data, meta);
 ```
 [Channel ID](https://www.piesocket.com/docs/3.0/overview) can be a string or number,
-`data` should be a String or JSON.
+`data` should be JSON.
+`meta` can be `null` or JSON.
 
 ## Supported Methods
 List of available methods on the PieSocket object
 
 | Method                | Description                                     | Returns  |
 | ----------------------------- | ----------------------------------------------------------------------------- | -------------- |
-| publish(channelId, message)    | Publish to a channel                       |  Promise object |
+| publish(channel, event , data, meta)    | Publish an event to a channel                       |  Promise |
 
 
 

@@ -51,7 +51,7 @@ List of available methods on the PieSocket object
 
 | Method                | Description                                     | Returns  |
 | ----------------------------- | ----------------------------------------------------------------------------- | -------------- |
-| publish(channel, event , data, meta)    | Publish an event to a channel                       |  Promise |
+| publish(channel ,event ,data ,meta)    | Publish an event to a channel                       |  Promise |
 
 
 
